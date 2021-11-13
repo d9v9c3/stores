@@ -25,12 +25,14 @@ public class ProductoController {
 	@GetMapping("/myproducts")
 	public ResponseEntity<List<Producto>> list() {
 		List<Producto> list = prdservice.list();
+		System.out.println("Tus productos se han listado");
 		return new ResponseEntity(list, HttpStatus.OK);
 	}
 
 	@GetMapping("/myproducts/{id}")
 	public ResponseEntity<Producto> findingObject(@PathVariable int id) {
 		Producto prd = prdservice.findById(id).get();
+		System.out.println("El producto ha sido solicitado");
 		return new ResponseEntity(prd, HttpStatus.OK);
 	}
 
